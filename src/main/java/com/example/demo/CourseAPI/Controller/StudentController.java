@@ -47,5 +47,12 @@ public class StudentController {
         List<Student> studentLatestRowList = studentService.getStudentLatestRow();
         return studentLatestRowList;
     }
+    @RequestMapping(value = "getStudentLatestUpdated")
+    public List<Student> getStudentLatestUpdated() {
+        List<Student> StudentLatestUpdated = studentService.getStudentLatestUpdated();
+
+        return StudentLatestUpdated;
+    }
+
 
 }

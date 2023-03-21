@@ -32,4 +32,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<Student> getStudentLatestRow();
 
 
+
+    @Query(value = "SELECT std from Student std where std.updatedDate = (SELECT MAX(std.updatedDate) FROM Student std)")
+    List<Student> getStudentLatestUpdated();
 }
