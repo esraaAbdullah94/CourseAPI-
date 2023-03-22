@@ -1,6 +1,7 @@
 package com.example.demo.CourseAPI.Moudle;
 
-
+import javax.persistence.*;
+import java.util.Date;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

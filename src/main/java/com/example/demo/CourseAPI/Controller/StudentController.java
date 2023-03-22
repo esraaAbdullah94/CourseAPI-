@@ -15,9 +15,16 @@ public class StudentController {
     StudentService studentService;
 
 
-    @RequestMapping(value = "getBySchoolName", method = RequestMethod.GET)
-    public List<Student> getStudentsBySchoolName(@RequestParam String schoolName) {
-        return studentService.getStudentsBySchoolName(schoolName);
+    @RequestMapping(value = "getById", method = RequestMethod.GET) // "student/getById" is a prefix
+    public Student getStudentById(@RequestParam Integer studentId) { //Request Parameter gets the parameter you want
+        Student student = studentService.getStudentById(studentId); // so the school will return school = schoolService.getSchoolById(id)
+        return student;
+    }
+
+    @RequestMapping(value = "getByName" , method = RequestMethod.GET)
+    public Student getStudentByName(@RequestParam String stdName){
+        Student std=studentService.getStudentByName(stdName);
+        return std;
     }
 
     @RequestMapping(value ="getAllStudent" ,method = RequestMethod.GET)
@@ -31,7 +38,7 @@ public class StudentController {
         List<Integer> stdListBySchoolId=studentService.getAllStudentBySchoolId();
         return  stdListBySchoolId;
     }
-    //GetallActive
+
     @RequestMapping(value = "getAllStudentByIsActive")
     public List<Student> getAllActiveStudent() {
         List<Student> activeStudentList = studentService.getAllActiveStudent();

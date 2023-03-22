@@ -19,23 +19,6 @@ public class StudentService {
     @Autowired
     SchoolRepository schoolRepository;
 
-    public void addStudent() {
-        Student student = new Student();
-        student.setName("Muzzamil Arif");
-        student.setRollNumber("1");
-        studentRepository.save(student);
-
-    }
-
-
-
-    public List<Student> getStudentsBySchoolName(String schoolName){
-        School school = schoolRepository.getBySchoolName(schoolName);
-        Integer schoolId = school.getId();
-        List<Student> studentList = studentRepository.getStudentsBySchoolId(schoolId);
-        return studentList;
-    }
-
 
     public List<Student> getAllStudent() {
         List<Student> stdList=studentRepository.getAllStudent();
@@ -61,5 +44,15 @@ public class StudentService {
 
     public List<Student> getStudentLatestUpdated() {
         return studentRepository.getStudentLatestUpdated();
+    }
+
+    public Student getStudentById(Integer stdId) {
+
+        return studentRepository.getStudentById(stdId);
+
+    }
+
+    public Student getStudentByName(String stdName){
+        return studentRepository.getStudentByName(stdName);
     }
 }
