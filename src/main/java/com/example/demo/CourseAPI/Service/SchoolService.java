@@ -58,4 +58,11 @@ public class SchoolService {
         return schoolName;
     }
 
+    // Function where it gets all the School Created by the given Date (getSchoolsByCreatedDate)
+    public List<School> getSchoolsByCreatedDate(String createdDate) throws ParseException {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd"); // to change the format of the date
+        Date convertedDateFromStringToDateFormat = dateFormatter.parse(createdDate);
+        List<School> schools = schoolRepository.getSchoolsByCreatedDate(convertedDateFromStringToDateFormat);
+        return schools;
+    }
 }

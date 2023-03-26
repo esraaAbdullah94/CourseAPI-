@@ -43,4 +43,11 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
 
     @Query("SELECT sch from School sch where sch.name= :schoolName")
     School getSchoolByName(@Param("schoolName") String school_name); // mapping the query and returning the school
+
+
+
+
+    @Query(value = "SELECT sch from School sch where sch.createdDate = :createdDate ")
+    List<School> getSchoolsByCreatedDate(Date createdDate);
+
 }
