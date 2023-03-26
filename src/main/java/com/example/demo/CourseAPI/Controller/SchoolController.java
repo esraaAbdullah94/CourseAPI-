@@ -58,7 +58,7 @@ public class SchoolController {
     }
 
     //gets the latest update for school (getSchoolLatestUpdated)
-    @RequestMapping(value = "/getSchoolLatestUpdated")
+    @RequestMapping(value = "getSchoolLatestUpdated")
     public List<School> getSchoolLatestUpdated() {
         List<School> schoolLatestUpdatedList = schoolService.getSchoolLatestUpdated();
         return schoolLatestUpdatedList;
