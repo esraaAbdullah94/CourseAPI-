@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -64,6 +65,11 @@ public class SchoolController {
         return schoolLatestUpdatedList;
     }
 
-
+    //function that checks if there is a date created bigger than the given date (getSchoolCreatedAfterDate)
+    @RequestMapping(value = "getSchoolCreatedAfterDate", method = RequestMethod.GET)
+    public List<School> getSchoolCreatedAfterDate(@RequestParam String createdDate) throws ParseException {
+        List<School> createdAfterDate = schoolService.getSchoolCreatedAfterDate(createdDate);
+        return createdAfterDate;
+    }
 
 }
