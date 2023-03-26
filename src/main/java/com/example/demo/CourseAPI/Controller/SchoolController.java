@@ -71,5 +71,11 @@ public class SchoolController {
         List<School> createdAfterDate = schoolService.getSchoolCreatedAfterDate(createdDate);
         return createdAfterDate;
     }
+    // function that gets the school by the name (getSchoolByName)
+    @RequestMapping(value = "getBySchoolName", method = RequestMethod.GET)
+    public School getBySchoolName(@RequestParam String school_name) {
+        School schoolName = schoolService.getSchoolByName(school_name);
+        return schoolName;
+    }
 
 }

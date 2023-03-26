@@ -52,4 +52,10 @@ public class SchoolService {
         return schools;
     }
 
+    // function that gets the school by the name (getSchoolByName)
+    public School getSchoolByName(String school_name) {
+        School schoolName = schoolRepository.getSchoolByName(school_name);// getting the school_name from the user
+        return schoolName;
+    }
+
 }
