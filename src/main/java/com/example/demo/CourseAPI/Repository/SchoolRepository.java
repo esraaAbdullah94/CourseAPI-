@@ -27,13 +27,11 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query(value = "SELECT s from School s where s.isActive = true")
     List<School> getAllActiveSchools();
 
-
     @Query(value = "SELECT s from School s where s.isActive = false")
     List<School> getAllUnActiveSchools();
 
     @Query(value = "SELECT sch from School sch where sch.id = (SELECT Max(sch.id) FROM School sch)")
     List<School> getSchoolLatestRow();
-
 
     @Query(value = "SELECT sch from School sch where sch.updatedDate = (SELECT MAX(sch.updatedDate) FROM School sch)")
     List<School> getSchoolLatestUpdated();
@@ -44,10 +42,9 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query("SELECT sch from School sch where sch.name= :schoolName")
     School getSchoolByName(@Param("schoolName") String school_name); // mapping the query and returning the school
 
-
-
-
     @Query(value = "SELECT sch from School sch where sch.createdDate = :createdDate ")
     List<School> getSchoolsByCreatedDate(Date createdDate);
 
+    @Query(value = "SELECT sch from School sch where sch.updatedDate = :updatedDate ")
+    List<School> getSchoolByUpdatedDate(Date updatedDate);
 }

@@ -83,5 +83,11 @@ public class SchoolController {
         List<School> getSchoolByCreatedDateVariable = schoolService.getSchoolsByCreatedDate(createdDate);
         return getSchoolByCreatedDateVariable;
     }
+    // Function where it gets all the School Updated by the given Date (getSchoolByUpdatedDate)
+    @RequestMapping(value = "getSchoolByUpdatedDate", method = RequestMethod.GET)
+    public List<School> getSchoolByUpdatedDateVariable(String updatedDate) throws ParseException {
+        List<School> getSchoolByUpdatedDateVariable = schoolService.getSchoolByUpdatedDate(updatedDate);
+        return getSchoolByUpdatedDateVariable;
+    }
 
 }
