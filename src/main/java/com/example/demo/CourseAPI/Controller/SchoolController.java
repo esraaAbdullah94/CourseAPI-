@@ -64,7 +64,7 @@ public class SchoolController {
         List<School> schoolLatestUpdatedList = schoolService.getSchoolLatestUpdated();
         return schoolLatestUpdatedList;
     }
-
+// test
     //function that checks if there is a date created bigger than the given date (getSchoolCreatedAfterDate)
     @RequestMapping(value = "getSchoolCreatedAfterDate", method = RequestMethod.GET)
     public List<School> getSchoolCreatedAfterDate(@RequestParam String createdDate) throws ParseException {
