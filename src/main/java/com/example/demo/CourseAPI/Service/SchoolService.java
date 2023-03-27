@@ -22,10 +22,9 @@ public class SchoolService {
     private StudentRepository studentRepository;
 
 
-
     public School getSchoolById(Integer schoolId) {
 
-        return  schoolRepository.getSchoolById(schoolId);
+        return schoolRepository.getSchoolById(schoolId);
     }
 
     public List<School> getAllSchools() {
@@ -37,7 +36,7 @@ public class SchoolService {
     }
 
     public List<School> getAllUnActiveSchools() {
-        return  schoolRepository.getAllUnActiveSchools();
+        return schoolRepository.getAllUnActiveSchools();
     }
 
     public List<School> getSchoolLatestRow() {
@@ -78,10 +77,12 @@ public class SchoolService {
         List<School> schools = schoolRepository.getSchoolByUpdatedDate(convertedDateFromStringToDateFormat);
         return schools;
     }
+
     public void deleteSchoolById(Integer id) {
         School school = schoolRepository.getSchoolById(id);
         school.setIsActive(Boolean.FALSE);
         schoolRepository.save(school);
+
     }
 
     public void deleteAllSchool() {
@@ -92,5 +93,25 @@ public class SchoolService {
         School school = schoolRepository.getSchoolByName(name);
         school.setIsActive(Boolean.FALSE);
         schoolRepository.save(school);
+    }
+
+    public void deleteSchoolsByCreatedDate(String createdDate) throws ParseException {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date convertedDateFromStringToDateFormat = dateFormatter.parse(createdDate);
+        List<School> schools = schoolRepository.getSchoolsByCreatedDate(convertedDateFromStringToDateFormat);
+        schools.stream().forEach(create -> create.setIsActive(Boolean.FALSE));
+        schoolRepository.saveAll(schools);
+
+    }
+
+    public void deleteSchoolsByUpdatedDate(String updatedDate) throws ParseException {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date convertedDateFromStringToDateFormat = dateFormatter.parse(updatedDate);
+        List<School> schools = schoolRepository.getSchoolByUpdatedDate(convertedDateFromStringToDateFormat);
+        schools.stream().forEach(create -> create.setIsActive(Boolean.FALSE));
+        schoolRepository.saveAll(schools);
+
+
+
     }
 }
