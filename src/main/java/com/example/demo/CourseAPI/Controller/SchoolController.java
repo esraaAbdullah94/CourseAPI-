@@ -93,7 +93,19 @@ public class SchoolController {
     public void deleteSchoolById(Integer id) {
         schoolService.deleteSchoolById(id);
     }
+    // This function updates all the school 'isActive' column to false (deleteAllSchool)
+    @RequestMapping(value = "deleteAllSchool")
+    public void deleteAllSchool() {
+        schoolService.deleteAllSchool();
+    }
+
+    @RequestMapping(value = "deleteBySchoolName")
+    public void deleteBySchoolName(@RequestParam String name) {
+        schoolService.deleteBySchoolName(name);
+    }
+    }
 
 
 
-}
+
+

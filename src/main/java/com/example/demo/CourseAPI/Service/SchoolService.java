@@ -84,4 +84,13 @@ public class SchoolService {
         schoolRepository.save(school);
     }
 
+    public void deleteAllSchool() {
+        schoolRepository.deleteAllSchool();
+    }
+
+    public void deleteBySchoolName(String name) {
+        School school = schoolRepository.getSchoolByName(name);
+        school.setIsActive(Boolean.FALSE);
+        schoolRepository.save(school);
+    }
 }

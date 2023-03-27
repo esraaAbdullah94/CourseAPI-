@@ -48,5 +48,6 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query(value = "SELECT sch from School sch where sch.updatedDate = :updatedDate ")
     List<School> getSchoolByUpdatedDate(Date updatedDate);
 
-
+    @Query(value = "Update School sch Set sch.isActive = false")
+    void deleteAllSchool();
 }
