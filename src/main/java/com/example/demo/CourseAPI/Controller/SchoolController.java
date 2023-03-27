@@ -89,5 +89,11 @@ public class SchoolController {
         List<School> getSchoolByUpdatedDateVariable = schoolService.getSchoolByUpdatedDate(updatedDate);
         return getSchoolByUpdatedDateVariable;
     }
+    @RequestMapping(value = "deleteSchoolById")
+    public void deleteSchoolById(Integer id) {
+        schoolService.deleteSchoolById(id);
+    }
+
+
 
 }

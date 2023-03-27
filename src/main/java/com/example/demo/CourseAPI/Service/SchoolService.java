@@ -2,6 +2,7 @@ package com.example.demo.CourseAPI.Service;
 
 import com.example.demo.CourseAPI.Moudle.School;
 import com.example.demo.CourseAPI.Repository.SchoolRepository;
+import com.example.demo.CourseAPI.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class SchoolService {
 
     @Autowired
     SchoolRepository schoolRepository;
+    @Autowired
+    private StudentRepository studentRepository;
+
 
 
     public School getSchoolById(Integer schoolId) {
@@ -74,4 +78,10 @@ public class SchoolService {
         List<School> schools = schoolRepository.getSchoolByUpdatedDate(convertedDateFromStringToDateFormat);
         return schools;
     }
+    public void deleteSchoolById(Integer id) {
+        School school = schoolRepository.getSchoolById(id);
+        school.setIsActive(Boolean.FALSE);
+        schoolRepository.save(school);
+    }
+
 }

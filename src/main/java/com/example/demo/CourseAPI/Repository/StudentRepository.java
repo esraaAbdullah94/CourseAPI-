@@ -42,6 +42,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query("SELECT s from Student s where s.name= :studentName")
     Student getStudentByName(@Param("studentName") String name);
-
-
 }
+
+
+

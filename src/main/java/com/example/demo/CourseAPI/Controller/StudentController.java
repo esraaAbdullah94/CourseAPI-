@@ -11,8 +11,10 @@ import java.util.List;
 @RequestMapping(value = "student")
 public class StudentController {
 
+
     @Autowired
     StudentService studentService;
+
 
 
     @RequestMapping(value = "getById", method = RequestMethod.GET) // "student/getById" is a prefix
