@@ -1,8 +1,11 @@
 package com.example.demo.CourseAPI.Controller;
 
+import com.example.demo.CourseAPI.Moudle.School;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,11 +32,16 @@ class SchoolControllerTest {
 
     }
     @Test
-    void getSchoolByIdFour()  throws Exception{
-        String SchoolName=schoolController.getSchoolById(1).getName();
+    void getSchoolByIdFour()  throws Exception {
+        String SchoolName = schoolController.getSchoolById(1).getName();
         assertEquals("Musact", SchoolName);
-
     }
+    @Test
+    void getAllSchools() throws Exception {
+        List<School> schools = schoolController.getAllActiveSchools();
+        assertNotNull(schools);
+    }
+
 
 
 }

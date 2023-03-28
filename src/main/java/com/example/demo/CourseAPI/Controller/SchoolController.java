@@ -16,9 +16,6 @@ import java.util.List;
 @RequestMapping(value = "school")
 public class SchoolController {
 
-
-
-
         @Autowired
         SchoolService schoolService;
 
