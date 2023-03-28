@@ -1,6 +1,7 @@
 package com.example.demo.CourseAPI.Controller;
 
 import com.example.demo.CourseAPI.Moudle.Course;
+import com.example.demo.CourseAPI.Moudle.Student;
 import com.example.demo.CourseAPI.Repository.CourseRepository;
 import com.example.demo.CourseAPI.Repository.SchoolRepository;
 import com.example.demo.CourseAPI.Service.CourseService;
@@ -24,6 +25,12 @@ public class CourseController {
     @RequestMapping(value = "getById", method = RequestMethod.GET) // "course/getById" is a prefix
     public Course getCourseById(@RequestParam Integer courseId) { //Request Parameter gets the parameter you want
         Course course = courseService.getCourseById(courseId);
+        return course;
+    }
+
+    @RequestMapping(value = "getByName" , method = RequestMethod.GET)
+    public Course getByCourseName(@RequestParam String courseName){
+        Course course=courseService.getByCourseName(courseName);
         return course;
     }
 }
