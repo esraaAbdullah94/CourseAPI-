@@ -26,5 +26,10 @@ public class MarkController {
         List<Mark> mark = markService.getAllMarks();
         return mark;
     }
+    @RequestMapping(value = "getAllMarkByIsActive")
+    public List<Mark> getAllActiveMark() {
+        List<Mark> activeMarkList = markService.getAllActiveMark();
+        return activeMarkList;
+    }
 
 }
