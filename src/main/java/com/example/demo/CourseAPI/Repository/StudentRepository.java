@@ -1,6 +1,7 @@
 package com.example.demo.CourseAPI.Repository;
 
 
+import com.example.demo.CourseAPI.Moudle.School;
 import com.example.demo.CourseAPI.Moudle.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -42,6 +44,15 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query("SELECT s from Student s where s.name= :studentName")
     Student getStudentByName(@Param("studentName") String name);
+
+
+
+    @Query("SELECT s from Student s where s.createdDate = :createdDate")
+    List<Student> getStudentByCreatedDate(Date createdDate);
+
+    @Query("SELECT s from Student s where s.updatedDate = :updatedDate")
+    List<Student> getStudentByUpdatedDate(Date updatedDate);
+
 }
 
 

@@ -93,31 +93,24 @@ public class SchoolController {
     @RequestMapping(value = "deleteSchoolById")
     public String deleteSchoolById(Integer id) {
         schoolService.deleteSchoolById(id);
-        return "updated succecful";
+        return "updated successful";
     }
-
-
-
     // This function updates all the school 'isActive' column to false (deleteAllSchool)
     @RequestMapping(value = "deleteAllSchool", method = RequestMethod.POST)
     public String deleteAllSchool() {
         schoolService.deleteAllSchool();
-        return "updated succecful";
+        return "updated successful";
     }
 
     @RequestMapping(value = "deleteBySchoolName", method = RequestMethod.POST)
-    public void deleteBySchoolName(@RequestParam String name) {
-        schoolService.deleteBySchoolName(name);
+    public String deleteBySchoolName(@RequestParam String name) {
+            schoolService.deleteBySchoolName(name);
+        return "updated successful";
     }
-    //This function updates the 'isActive' column to false by giving the Created date (deleteSchoolsByCreatedDate)
-    @RequestMapping(value = "deleteSchoolsByCreatedDate", method = RequestMethod.POST)
-    public void deleteSchoolsByCreatedDate(@RequestParam String createdDate) throws ParseException {
-        schoolService.deleteSchoolsByCreatedDate(createdDate);
-    }
-    @RequestMapping(value = "deleteSchoolsByUpdatedDate", method = RequestMethod.POST)
-    public void deleteSchoolsByUpdatedDate(@RequestParam String updatedDate) throws ParseException {
-        schoolService.deleteSchoolsByUpdatedDate(updatedDate);
-    }
+
+
+
+
 }
 
 

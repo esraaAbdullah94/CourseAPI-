@@ -3,6 +3,7 @@ package com.example.demo.CourseAPI.Repository;
 
 
 import com.example.demo.CourseAPI.Moudle.School;
+import com.example.demo.CourseAPI.Moudle.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -55,4 +56,7 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Transactional
     @Query(value = "Update School sch Set sch.isActive = false")
     void deleteAllSchool();
+
+
+
 }

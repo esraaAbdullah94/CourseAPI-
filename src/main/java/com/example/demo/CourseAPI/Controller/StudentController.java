@@ -1,10 +1,12 @@
 package com.example.demo.CourseAPI.Controller;
 
+import com.example.demo.CourseAPI.Moudle.School;
 import com.example.demo.CourseAPI.Moudle.Student;
 import com.example.demo.CourseAPI.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -61,6 +63,17 @@ public class StudentController {
         List<Student> StudentLatestUpdated = studentService.getStudentLatestUpdated();
 
         return StudentLatestUpdated;
+    }
+
+    public List<Student> getStudentByCreatedDate(String createdDate) throws ParseException {
+        List<Student> getStudentByCreatedDateVariable = studentService.getStudentByCreatedDate(createdDate);
+        return getStudentByCreatedDateVariable;
+    }
+
+    @RequestMapping(value = "getStudentsByUpdatedDate", method = RequestMethod.GET)
+    public List<Student> getStudentsByUpdatedDate(String updatedDate) throws ParseException {
+        List<Student> getStudentByUpdatedDateVariable = studentService.getStudentByUpdatedDate(updatedDate);
+        return getStudentByUpdatedDateVariable;
     }
 
 

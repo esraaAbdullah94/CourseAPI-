@@ -8,6 +8,10 @@ import com.example.demo.CourseAPI.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,6 +22,19 @@ public class StudentService {
 
     @Autowired
     SchoolRepository schoolRepository;
+
+    public List<Student> getStudentByCreatedDate(String createdDate) throws ParseException {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd"); // to change the format of the date
+        Date convertedDateFromStringToDateFormat = dateFormatter.parse(createdDate);
+        List<Student> students = studentRepository.getStudentByCreatedDate(convertedDateFromStringToDateFormat);
+        return students;
+    }
+    public List<Student> getStudentByUpdatedDate(String updatedDate) throws ParseException {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd"); // to change the format of the date
+        Date convertedDateFromStringToDateFormat = dateFormatter.parse(updatedDate);
+        List<Student> students = studentRepository.getStudentByUpdatedDate(convertedDateFromStringToDateFormat);
+        return students;
+    }
 
 
     public List<Student> getAllStudent() {
@@ -55,4 +72,5 @@ public class StudentService {
     public Student getStudentByName(String stdName){
         return studentRepository.getStudentByName(stdName);
     }
+
 }

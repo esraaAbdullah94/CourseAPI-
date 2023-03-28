@@ -10,11 +10,24 @@ import static org.junit.jupiter.api.Assertions.*;
 class SchoolControllerTest {
     @Autowired
     SchoolController schoolController;
-
     @Test
     void getSchoolById()  throws Exception{
+        String SchoolName=schoolController.getSchoolById(1).getName();
+        assertEquals("Musact", SchoolName);
+
+    }
+    @Test
+    void getSchoolByIdTow()  throws Exception{
         String SchoolName=schoolController.getSchoolById(2).getName();
         assertEquals("Nizwa", SchoolName);
 
     }
+    @Test
+    void getSchoolByIdThree()  throws Exception{
+        String SchoolName=schoolController.getSchoolById(3).getName();
+        assertEquals("Matrah", SchoolName);
+
+    }
+
+
 }
