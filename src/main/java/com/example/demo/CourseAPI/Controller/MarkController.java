@@ -32,4 +32,10 @@ public class MarkController {
         return activeMarkList;
     }
 
+    @RequestMapping(value = "getAllMarkByIsUnActive")
+    public List<Mark> getAllUnActiveMark() {
+        List<Mark> notActiveMarkList = markService.getAllUnActiveMark();
+        return notActiveMarkList;
+    }
+
 }

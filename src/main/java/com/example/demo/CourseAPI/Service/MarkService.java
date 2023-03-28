@@ -26,4 +26,7 @@ MarkRepository markRepository;
         return markRepository.getAllActiveMark();
     }
 
+    public List<Mark> getAllUnActiveMark(){
+        return markRepository.getAllUnActiveMark();
+    }
 }
