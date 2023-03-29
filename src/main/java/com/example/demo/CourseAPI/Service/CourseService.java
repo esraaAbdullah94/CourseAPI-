@@ -49,4 +49,18 @@ public class CourseService {
         List<Course> course = courseRepository.getCourseCreatedAfterDate(convertedDateFromStringToDateFormat);
         return course;
     }
+
+    public List<Course> getCourseByCreatedDate(String createdDate) throws ParseException {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd"); // to change the format of the date
+        Date convertedDateFromStringToDateFormat = dateFormatter.parse(createdDate);
+        List<Course> course = courseRepository.getCourseByCreatedDate(convertedDateFromStringToDateFormat);
+        return course;
+    }
+
+    public List<Course> getCourseByUpdatedDate(String updatedDate) throws ParseException {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd"); // to change the format of the date
+        Date convertedDateFromStringToDateFormat = dateFormatter.parse(updatedDate);
+        List<Course> course = courseRepository.getCourseByUpdatedDate(convertedDateFromStringToDateFormat);
+        return course;
+    }
 }

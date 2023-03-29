@@ -27,4 +27,8 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
     List<Course> getCourseLatestUpdated();
 @Query(value = "SELECT c from Course c where c.createdDate >= :createdDate")
     List<Course> getCourseCreatedAfterDate(Date createdDate);
+    @Query(value = "SELECT c from Course c where c.createdDate = :createdDate")
+    List<Course> getCourseByCreatedDate(Date createdDate);
+    @Query(value = "SELECT c from Course c where c.updatedDate = :updatedDate")
+    List<Course> getCourseByUpdatedDate(Date updatedDate);
 }
