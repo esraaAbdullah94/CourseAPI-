@@ -63,4 +63,9 @@ public class CourseService {
         List<Course> course = courseRepository.getCourseByUpdatedDate(convertedDateFromStringToDateFormat);
         return course;
     }
+
+    public List<Course> getCoursesByStudentId(Integer id) {
+        List<Course> coursesList = courseRepository.getCoursesByStudentId(id);
+        return coursesList;
+    }
 }

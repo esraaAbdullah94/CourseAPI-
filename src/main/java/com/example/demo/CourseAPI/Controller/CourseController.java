@@ -72,4 +72,11 @@ public class CourseController {
         List<Course> updatedDateVariable = courseService.getCourseByUpdatedDate(updatedDate);
         return updatedDateVariable;
     }
+    //    // Function that gets all courses from the student ID (getCourseByStudentId)
+    @RequestMapping(value = "getCourseByStudentId", method = RequestMethod.GET)
+    public List<Course> getCourseByStudentId(@RequestParam Integer id) {
+        List<Course> coursesOfAStudent = courseService.getCoursesByStudentId(id);
+        return coursesOfAStudent;
+    }
+
 }
