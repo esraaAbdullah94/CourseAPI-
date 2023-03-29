@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "course")
 public class CourseController {
@@ -32,5 +34,25 @@ public class CourseController {
     public Course getByCourseName(@RequestParam String courseName){
         Course course=courseService.getByCourseName(courseName);
         return course;
+    }
+    @RequestMapping(value = "getAllCourseByIsActive", method = RequestMethod.GET)
+    public List<Course> getAllActiveCourse() {
+        List<Course> activeCourseList = courseService.getAllActiveCourse();
+        return activeCourseList;
+    }
+    @RequestMapping(value = "getAllCourseByIsUnActive", method = RequestMethod.GET)
+    public List<Course> getAllUnActiveCourse() {
+        List<Course> notActiveCourseList = courseService.getAllUnActiveCourse();
+        return notActiveCourseList;
+    }
+    @RequestMapping(value = "getCourseLatestRow", method = RequestMethod.GET)
+    public List<Course> getCourseLatestRow() {
+       List<Course>  courseLatestRowList = courseService.getCourseLatestRow();
+        return courseLatestRowList;
+    }
+    @RequestMapping(value = "getCourseLatestUpdated")
+    public List<Course> getCourseLatestUpdated() {
+        List<Course> courseLatestUpdatedList = courseService.getCourseLatestUpdated();
+        return courseLatestUpdatedList;
     }
 }
