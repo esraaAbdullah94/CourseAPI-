@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -54,5 +55,10 @@ public class CourseController {
     public List<Course> getCourseLatestUpdated() {
         List<Course> courseLatestUpdatedList = courseService.getCourseLatestUpdated();
         return courseLatestUpdatedList;
+    }
+    @RequestMapping(value = "getCourseCreatedAfterDate", method = RequestMethod.GET)
+    public List<Course> getCourseCreatedAfterDate(@RequestParam String createdDate) throws ParseException {
+        List<Course> createdAfterDate = courseService.getCourseCreatedAfterDate(createdDate);
+        return createdAfterDate;
     }
 }
