@@ -1,13 +1,10 @@
 package com.example.demo.CourseAPI.Controller;
 
 import com.example.demo.CourseAPI.Moudle.School;
-import com.example.demo.CourseAPI.Moudle.Student;
 import com.example.demo.CourseAPI.Service.SchoolService;
+import com.example.demo.CourseAPI.Slack.SlackClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
@@ -18,8 +15,10 @@ public class SchoolController {
 
         @Autowired
         SchoolService schoolService;
+    @Autowired
+    private SlackClient slackClient;
 
-        // get school by ID (getById)
+    // get school by ID (getById)
         @RequestMapping(value = "getById", method = RequestMethod.GET)
         public School getSchoolById(@RequestParam Integer schoolId) {
             School school = schoolService.getSchoolById(schoolId);
@@ -31,6 +30,7 @@ public class SchoolController {
     //function that returns all school
     public List<School> getAllSchools() {
         List<School> schools = schoolService.getAllSchools();
+        slackClient.sendMessage("Just test");
 
         return schools;
 

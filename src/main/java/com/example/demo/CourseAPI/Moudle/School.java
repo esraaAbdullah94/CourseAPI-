@@ -23,4 +23,5 @@ public class School extends BaseEntity {
     @Column(name = "school_name")
     String name;
 
+
 }

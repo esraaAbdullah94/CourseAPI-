@@ -2,6 +2,7 @@ package com.example.demo.CourseAPI.Controller;
 
 import com.example.demo.CourseAPI.Moudle.School;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -35,6 +36,10 @@ class SchoolControllerTest {
     void getSchoolByIdFour()  throws Exception {
         String SchoolName = schoolController.getSchoolById(1).getName();
         assertEquals("Musact", SchoolName);
+    }
+    @Test
+    void getSchoolByIdThrowsErrorOnInvalid()throws  Exception{
+        assertThrows(Exception.class, (Executable) schoolController.getSchoolById(30));
     }
     @Test
     void getAllSchools() throws Exception {

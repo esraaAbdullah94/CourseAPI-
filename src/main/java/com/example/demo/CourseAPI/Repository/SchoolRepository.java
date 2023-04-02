@@ -4,6 +4,7 @@ package com.example.demo.CourseAPI.Repository;
 
 import com.example.demo.CourseAPI.Moudle.School;
 import com.example.demo.CourseAPI.Moudle.Student;
+import org.hibernate.sql.Select;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -22,10 +23,6 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
 
     @Query(value = "SELECT s from School s where s.id = :schoolId")
     School getSchoolById(@Param("schoolId") Integer id);
-
-    @Query(value = "SELECT s from School s " +
-            "WHERE s.name = :schoolName")
-    School getBySchoolName(@Param("schoolName") String schoolName);
 
     @Query(value = "SELECT s from School s where s.isActive = true")
     List<School> getAllActiveSchools();
@@ -56,7 +53,6 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Transactional
     @Query(value = "Update School sch Set sch.isActive = false")
     void deleteAllSchool();
-
 
 
 }

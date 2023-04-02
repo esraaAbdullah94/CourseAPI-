@@ -22,6 +22,7 @@ public class SchoolService {
     private StudentRepository studentRepository;
 
 
+
     public School getSchoolById(Integer schoolId) {
 
         return schoolRepository.getSchoolById(schoolId);
