@@ -30,7 +30,7 @@ class SchoolControllerTest {
         List<School> schools = schoolController.getAllActiveSchools();
         assertNotNull(schools);
     }
-    
+
 
 
 
