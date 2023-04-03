@@ -73,4 +73,14 @@ public class StudentService {
         return studentRepository.getStudentByName(stdName);
     }
 
+    public void createStudent(String studentName) {
+        Student student = new Student();
+      student.setName(studentName);
+      student.setUpdatedDate(new Date());
+      student.setCreatedDate(new Date());
+      student.setIsActive(Boolean.TRUE);
+      student.setRollNumber("9725468");
+      studentRepository.save(student);
+
+    }
 }

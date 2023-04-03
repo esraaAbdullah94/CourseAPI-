@@ -37,5 +37,9 @@ public class MarkController {
         List<Mark> notActiveMarkList = markService.getAllUnActiveMark();
         return notActiveMarkList;
     }
+    @RequestMapping(value = "createMarks")
+    public void createMarks(String courseName) {
+        markService.createMarks(courseName);
+    }
 
 }

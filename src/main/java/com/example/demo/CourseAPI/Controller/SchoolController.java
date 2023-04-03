@@ -104,6 +104,10 @@ public class SchoolController {
             schoolService.deleteBySchoolName(name);
         return "updated successful";
     }
+    @RequestMapping(value = "createSchool")
+    public void createSchool(String name) {
+        schoolService.createSchool(name);
+    }
 
 
 

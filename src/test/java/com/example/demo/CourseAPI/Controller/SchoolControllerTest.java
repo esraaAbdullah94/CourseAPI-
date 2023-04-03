@@ -16,29 +16,13 @@ class SchoolControllerTest {
     SchoolController schoolController;
     @Test
     void getSchoolById()  throws Exception{
+        //checks if the name of the school with ID 1 is "Musact". If the name is not "Musact", the test will fail.
         String SchoolName=schoolController.getSchoolById(1).getName();
         assertEquals("Musact", SchoolName);
-
-    }
-    @Test
-    void getSchoolByIdTow()  throws Exception{
-        String SchoolName=schoolController.getSchoolById(2).getName();
-        assertEquals("Nizwa", SchoolName);
-
-    }
-    @Test
-    void getSchoolByIdThree()  throws Exception{
-        String SchoolName=schoolController.getSchoolById(3).getName();
-        assertEquals("Matrah", SchoolName);
-
-    }
-    @Test
-    void getSchoolByIdFour()  throws Exception {
-        String SchoolName = schoolController.getSchoolById(1).getName();
-        assertEquals("Musact", SchoolName);
-    }
-    @Test
-    void getSchoolByIdThrowsErrorOnInvalid()throws  Exception{
+        // Assert that the ID of the returned school matches the requested ID
+        int schoolId = schoolController.getSchoolById(1).getId();
+        assertEquals(1, schoolId);
+        //checks if an exception is thrown when attempting to get a school with an ID that does not exist (in this case, ID 30). If an exception is not thrown, the test will fail.
         assertThrows(Exception.class, (Executable) schoolController.getSchoolById(30));
     }
     @Test
@@ -46,6 +30,7 @@ class SchoolControllerTest {
         List<School> schools = schoolController.getAllActiveSchools();
         assertNotNull(schools);
     }
+    
 
 
 

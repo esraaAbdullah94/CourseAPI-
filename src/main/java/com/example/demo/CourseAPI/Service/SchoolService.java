@@ -1,5 +1,6 @@
 package com.example.demo.CourseAPI.Service;
 
+import com.example.demo.CourseAPI.Moudle.Course;
 import com.example.demo.CourseAPI.Moudle.School;
 import com.example.demo.CourseAPI.Repository.SchoolRepository;
 import com.example.demo.CourseAPI.Repository.StudentRepository;
@@ -97,6 +98,14 @@ public class SchoolService {
     }
 
 
+    public void createSchool(String name) {
+       School school = new School();
+        school.setName(name);
+        school.setCreatedDate(new Date());
+        school.setUpdatedDate(new Date());
+        school.setIsActive(Boolean.TRUE);
+       schoolRepository.save(school);
 
 
+    }
 }

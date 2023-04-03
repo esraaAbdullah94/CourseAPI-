@@ -75,6 +75,11 @@ public class StudentController {
         List<Student> getStudentByUpdatedDateVariable = studentService.getStudentByUpdatedDate(updatedDate);
         return getStudentByUpdatedDateVariable;
     }
+    //createStudent
+    @RequestMapping(value = "createStudent")
+    public void createStudent(String studentName) {
+        studentService.createStudent(studentName);
+    }
 
 
 }

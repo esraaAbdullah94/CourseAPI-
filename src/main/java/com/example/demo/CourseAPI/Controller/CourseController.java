@@ -78,5 +78,11 @@ public class CourseController {
         List<Course> coursesOfAStudent = courseService.getCoursesByStudentId(id);
         return coursesOfAStudent;
     }
+    // Create a new course record (createCourse)
+    @RequestMapping(value = "createCourse")
+    public void createCourse(String name) {
+        courseService.createCourse(name);
+    }
+
 
 }
