@@ -32,22 +32,11 @@ public class ReportService {
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(schoolList);
         Map<String, Object> paramters = new HashMap<>();
-        paramters.put("CreatedBy", "Esraa");
+        paramters.put("CreatedBy", "TechM");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,paramters , dataSource);
         JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports+"\\schools.pdf");
         return "Report generated : " + pathToReports+"\\schools.pdf";
     }
 
-//    public String generateReportk() throws FileNotFoundException, JRException {
-//        List<Student> studentList = studentRepository.getAllStudent();
-//
-//        File file = ResourceUtils.getFile("classpath:schoolStudebReport.jrxml");
-//        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-//        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(studentList);
-//        Map<String, Object> paramters = new HashMap<>();
-//        paramters.put("CreatedBy", "Esraa");
-//        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,paramters , dataSource);
-//        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports+"\\schoolStudebReport.pdf");
-//        return "Report generated : " + pathToReports+"\\schoolStudebReport.pdf";
-//    }
+
 }
