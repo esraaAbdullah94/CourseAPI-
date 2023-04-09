@@ -34,7 +34,7 @@ MarkRepository markRepository;
 
     public void createMarks(String courseName) {
         Mark mark = new Mark();
-        mark.setGrade("50");
+        mark.setGrade(50);
         mark.setObtainedMarks(20);
         mark.setIsActive(Boolean.TRUE);
         mark.setCreatedDate(new Date());

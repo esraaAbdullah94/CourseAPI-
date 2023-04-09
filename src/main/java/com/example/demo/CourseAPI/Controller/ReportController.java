@@ -1,5 +1,6 @@
 package com.example.demo.CourseAPI.Controller;
 
+import com.example.demo.CourseAPI.Report.CourseReportService;
 import com.example.demo.CourseAPI.Report.StudentSchoolReportService;
 import com.example.demo.CourseAPI.Service.ReportService;
 import net.sf.jasperreports.engine.JRException;
@@ -17,6 +18,8 @@ public class ReportController {
     ReportService reportService;
     @Autowired
     StudentSchoolReportService studentSchoolReport;
+    @Autowired
+    CourseReportService courseReportService;
     @RequestMapping(value = "schoolReport" ,method = RequestMethod.GET)
     public String generateSchoolsReport() throws JRException, FileNotFoundException {
        return reportService.generateReport();
@@ -25,6 +28,11 @@ public class ReportController {
     @RequestMapping(value = "studentReport" ,method = RequestMethod.GET)
     public void generateReport() throws JRException, FileNotFoundException {
         studentSchoolReport.generateReport();
+    }
+
+    @RequestMapping(value = "courseReport" ,method = RequestMethod.GET)
+    public void generateCourseReport() throws JRException, FileNotFoundException {
+        courseReportService.generateCourseReport();
     }
 
 

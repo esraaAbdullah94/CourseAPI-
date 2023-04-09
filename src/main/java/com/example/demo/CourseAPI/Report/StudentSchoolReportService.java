@@ -19,9 +19,6 @@ import java.util.Map;
 @Service
 public class StudentSchoolReportService {
     @Autowired
-    SchoolRepository schoolRepository;
-
-    @Autowired
     StudentRepository studentRepository;
     @Autowired
     public static final String pathToReports = "C:\\Users\\user005\\Downloads\\Report";
