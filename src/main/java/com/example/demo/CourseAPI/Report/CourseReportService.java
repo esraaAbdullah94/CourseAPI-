@@ -21,14 +21,8 @@ import java.util.Map;
 @Service
 public class CourseReportService {
     @Autowired
-    SchoolRepository schoolRepository;
-
-    @Autowired
-    StudentRepository studentRepository;
-    @Autowired
     MarkRepository markRepository;
-    @Autowired
-    CourseRepository courseRepository;
+
     @Autowired
     public static final String pathToReports = "C:\\Users\\user005\\Downloads\\Report";
     public String generateCourseReport() throws FileNotFoundException, JRException {
